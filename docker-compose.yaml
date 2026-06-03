@@ -1,0 +1,49 @@
+services:
+  hnh-manager:
+    image: ghcr.io/hypernylium/hnhomelabmanager:latest
+    container_name: hnh-manager
+    restart: unless-stopped
+    environment:
+      # discord bot token. required.
+      - BOT_TOKEN=
+      # discord server (guild) id the bot runs in. required.
+      - GUILD_ID=
+      # forum channel id where requests get posted. required.
+      - POST_CHANNEL_ID=
+      # discord user id of the bot owner, used for owner-only commands. required.
+      - OWNER_ID=
+      # extra discord user ids allowed to use mod commands, comma separated. optional.
+      - MOD_IDS=
+      # simkl api client id, used to build media info cards. optional.
+      - SIMKL_CLIENT_ID=
+      # timezone for the report picker dropdown labels, like America/New_York. defaults to UTC.
+      - TZ=
+      # where settings.json is stored. defaults to /app/config.
+      - SETTINGS_DIR=/app/config
+      # where export reports are stored. defaults to /data/reports.
+      - REPORTS_DIR=/data/reports
+      # how a request title is matched: startswith, contains, or regex. defaults to startswith.
+      - TITLE_MATCH_MODE=startswith
+      # the title text or pattern a request post must match. defaults to [MEDIA REQUEST]:.
+      - "TITLE_PATTERN=[MEDIA REQUEST]:"
+      # whether title matching is case sensitive. defaults to true.
+      - TITLE_CASE_SENSITIVE=true
+      # only include open threads in an export. defaults to true.
+      - ONLY_OPEN_THREADS=true
+      # treat an archived thread as not open. defaults to true.
+      - OPEN_NOT_ARCHIVED=true
+      # treat a locked thread as not open. defaults to true.
+      - OPEN_NOT_LOCKED=true
+      # also fetch archived public threads when exporting. defaults to true.
+      - FETCH_ARCHIVED_PUBLIC=true
+      # also fetch archived private threads when the bot has permission. defaults to true.
+      - FETCH_ARCHIVED_PRIVATE=true
+      # include message attachment urls in exports. defaults to true.
+      - INCLUDE_ATTACHMENTS=true
+      # include embed urls in exports. defaults to false.
+      - INCLUDE_EMBED_URLS=false
+      # cap how many messages per thread get exported. blank means no cap.
+      - MAX_MESSAGES_PER_THREAD=
+    volumes:
+      - ./appdata/config:/app/config:rw
+      - ./appdata/reports:/data/reports:rw

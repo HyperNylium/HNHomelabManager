@@ -1,0 +1,26 @@
+name: Lint test
+
+on:
+  push:
+    branches: [ master, dev ]
+    paths:
+      - "*.py"
+      - "**/*.py"
+  pull_request:
+    branches: [ master, dev ]
+    paths:
+      - "*.py"
+      - "**/*.py"
+
+jobs:
+  ruff-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: astral-sh/ruff-action@v3
+        with:
+          version: "latest"
+          args: check .
