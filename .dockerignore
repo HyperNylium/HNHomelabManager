@@ -1,0 +1,27 @@
+# Python bytecode & virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+.env
+
+# Ruff cache
+.ruff_cache/
+
+# Git & CI
+.git/
+.gitignore
+.gitattributes
+.github/
+
+# OS junk
+.DS_Store
+
+# Editors
+.idea/
+.vscode/
+
+# other unnecessary files/folders
+docker-compose.yaml
+appdata/
+LICENSE
+*.md

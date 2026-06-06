@@ -1,7 +1,22 @@
-# env
-.venv/
+# Python bytecode
+__pycache__/
+*.py[cod]
 
-# Ruff stuff:
+# Virtual environments
+.venv/
+.env
+
+# Ruff cache
 .ruff_cache/
 
+# OS junk
+.DS_Store
+
+# Runtime files
+appdata/config/*
+!appdata/config/.gitkeep
+appdata/reports/*
+!appdata/reports/.gitkeep
+
+# my stuff
 notes.txt
