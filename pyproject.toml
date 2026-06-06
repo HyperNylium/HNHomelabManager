@@ -4,17 +4,14 @@ version = "1.0.0"
 description = "Discord bot for HNHomelab"
 requires-python = ">=3.13,<3.14"
 dependencies = [
-    "discord.py",
-    "aiohttp",
-    # ships the IANA timezone database so ZoneInfo works even on systems
-    # that don't have one (alpine, minimal containers). without this,
-    # ZoneInfo("America/New_York") raises and we fall back to UTC.
-    "tzdata",
+    "aiohttp>=3.14.0",
+    "discord-py>=2.7.1",
+    "tzdata>=2026.2",
 ]
 
 [dependency-groups]
 dev = [
-    "ruff>=0.15.12",
+    "ruff>=0.15.0",
 ]
 
 [tool.uv]
