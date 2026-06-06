@@ -1,5 +1,5 @@
 [project]
-name = "hnhomelabmanager"
+name = "HNHomelabManager"
 version = "1.0.0"
 description = "Discord bot for HNHomelab"
 requires-python = ">=3.13,<3.14"
